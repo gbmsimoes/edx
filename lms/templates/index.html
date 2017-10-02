@@ -5,7 +5,7 @@
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 %>
-<head>
+<%block name="headextra">
     <!-- jQuery -->
     <script src="http://ma5slider.ma5.pl/js/jquery.min.js"></script>
      
@@ -24,7 +24,7 @@ from django.core.urlresolvers import reverse
             $('.ma5slider').ma5slider();
         });
     </script>
-</head>
+</%block>
 <section class="home">
   <header>
     <div class="ma5slider outside-navs outside-dots anim-horizontal loop-mode">
