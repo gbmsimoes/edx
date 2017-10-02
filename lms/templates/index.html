@@ -5,15 +5,39 @@
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 %>
-
+<head>
+    <!-- jQuery -->
+    <script src="http://ma5slider.ma5.pl/js/jquery.min.js"></script>
+     
+    <!-- jQuery UI mouse draggable widget -->
+    <script src="http://ma5slider.ma5.pl/js/jquery-ui.min.js"></script>
+     
+    <!-- Touch Event Support for jQuery UI -->
+    <script src="http://ma5slider.ma5.pl/js/jquery.ui.touch-punch.min.js"></script>
+     
+    <!-- MA5 Slider -->
+    <link href="http://ma5slider.ma5.pl/css/ma5slider.min.css" rel="stylesheet" type="text/css">
+    <script src="http://ma5slider.ma5.pl/js/ma5slider.min.js"></script>
+     
+    <script>
+        $(window).on('load', function () {
+            $('.ma5slider').ma5slider();
+        });
+    </script>
+</head>
 <section class="home">
   <header>
-      <ul class="bxslider">
-        <li><img src="images/pic1.jpg" /></li>
-        <li><img src="images/pic2.jpg" /></li>
-        <li><img src="images/pic3.jpg" /></li>
-        <li><img src="images/pic4.jpg" /></li>
-      </ul>
+    <div class="ma5slider outside-navs outside-dots anim-horizontal loop-mode">
+            <div class="slides">
+                <!-- children = slides -->
+                <a href="#slide-1"><img src="http://ma5slider.ma5.pl/images/DSC_0916.jpg" alt=""></a>
+                <a href="#slide-2"><img src="http://ma5slider.ma5.pl/images/DSC_0922.jpg" alt=""></a>
+                <a href="#slide-3"><img src="http://ma5slider.ma5.pl/images/DSC_1002.jpg" alt=""></a>
+                <a href="#slide-4"><img src="http://ma5slider.ma5.pl/images/DSC_1103.jpg" alt=""></a>
+                <a href="#slide-5"><img src="http://ma5slider.ma5.pl/images/DSC_1376.jpg" alt=""></a>
+                <a href="#slide-6"><img src="http://ma5slider.ma5.pl/images/DSC_1390.jpg" alt=""></a>
+            </div>
+        </div>
 
   </header>
   <section class="courses-container">
@@ -59,13 +83,6 @@ from django.core.urlresolvers import reverse
          }
       })
    </script>
-
-   <!-- jQuery library (served from Google) -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<!-- bxSlider Javascript file -->
-<script src="js/jquery.bxslider.min.js"></script>
-<!-- bxSlider CSS file -->
-<link href="lib/jquery.bxslider.css" rel="stylesheet" />
 </%block>
 
 % if show_signup_immediately is not UNDEFINED:
@@ -73,11 +90,5 @@ from django.core.urlresolvers import reverse
   ## show either with or without this extra js for 3 minutes at a time.
 <script type="text/javascript">
   $(window).load(function() {$('#signup_action').trigger("click");});
-
-  $(document).ready(function(){
-    $('.bxslider').bxSlider();
-  });
 </script>
-
-
 % endif
